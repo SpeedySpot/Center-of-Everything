@@ -2,10 +2,6 @@ var man;
 var fire = [];
 var gems = [];
 var scene = 0;
-let timeSave = 0;
-let clock = 1000;
-let timeSave2 = 0;
-let clock2 = 3000;
 
 
 
@@ -20,22 +16,47 @@ function preload() {
   maggy2 = loadImage('assets/Maggy2.png');
   maggy3 = loadImage('assets/Maggy3.png');
   maggy4 = loadImage('assets/Maggy4.png');
-  logo = loadImage('assets/cooltext373957767755489.png');
+  logo = loadImage('assets/logo.png');
   
-    maggy1.resize(40, 50);
-  maggy2.resize(50, 50);
-  maggy3.resize(40, 50);
-  maggy4.resize(50, 50);
+
 }
 
 function setup() {
   createCanvas(500, 400);
+    maggy1.resize(40, 50);
+  maggy2.resize(50, 50);
+  maggy3.resize(40, 50);
+  maggy4.resize(50, 50);
   rectMode(CORNER);
   timeSave = millis();
   man = new Person();
   for (i = 0; i < 15; i++) {
     floorX.push(i * 95)
   }
+  clock1 = new Clock({
+    clock: 1000,
+    start: function() { 
+      gemSpawn();
+    }
+  })
+  clock2 = new Clock({
+    clock: 3000,
+    start: function() { 
+      fireSpawn();
+    }
+  })
+  clock3 = new Clock({
+    clock: 500,
+    start: function() { 
+      if (man.frame === 0) {
+        man.frame = 1
+      }
+      else {
+        man.frame = 0;
+      }
+    }
+  })
+  
 }
 
 function draw() {
@@ -44,22 +65,15 @@ function draw() {
   }
   if (scene === 1) {
     scene1();
-    if (millis() > timeSave + clock) {
-      gemSpawn();
-      if (man.frame === 0) {
-        man.frame = 1
-      }
-      else {
-        man.frame = 0;
-      }
-      
-    }
-    if (millis() > timeSave2 + clock2) {
-      fireSpawn();
-    }
+    clock1.tick();
+    clock2.tick();
+    clock3.tick();
   }
   if (scene === 2) {
     scene2();
+  }
+  if (scene === 3) {
+    scene3();
   }
 
 }

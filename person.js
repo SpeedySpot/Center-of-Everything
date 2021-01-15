@@ -1,5 +1,5 @@
 function Person() {
-  this.x = 300;
+  this.x = 50;
   this.y = 300;
   this.gravity = 0;
   this.score = 0;
