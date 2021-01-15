@@ -1,0 +1,2 @@
+# Center-of-Everything
+Deep in the core of the Earth lives Maggy, an derpy-looking creature made out of magma who exists in a secret civilization. The main currency are gems and Maggy is looking a bit broke. Help Maggy as they run through the core of the Earth where at the slightest jump will change the gravitational pull.  Collect Gems. Avoid Literally Anything Else. Arrow Keys to Move. Space to Switch Gravity.
