@@ -47,7 +47,7 @@ function fireDraw() {
 
 Gem.prototype.detect = function() {
   if (man.x > this.x - 30 && man.x < this.x + 30 && man.y > this.y - 55 && man.y < this.y + 55) {
-    this.x -= 400
+    this.x -= 500
     man.score++;
   }
 }
